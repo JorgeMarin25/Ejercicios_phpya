@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" media="all" href="">
+	<script type="text/javascript" src=""></script>
+	<script type="text/javascript" src=""></script>
+</head>
+<body>
+	<div>
+		<form name="FormUser" method="post" action="">
+			<h2>Formulario Nuevo Usuario</h2>
+			<br>
+			Tipo de Documento:<select name="tipodocs">
+				<option>----------</option>
+			<?php
+			$servidor = "localhost"; //Nombre del servidor
+			$usuario = "root"; //Nombre de usuario en tu servidor
+			$password = " "; //Contraseña del usuario
+			$base = "EjerPhp"; //Nombre de la BD 
+			$conexion = mysql_connect($servidor, $usuario, $password) or die("Error al conectarse al servidor");
+			mysql_select_db($base,$conexion) or die("Error al conectarse a la base de datos".mysql_error());
+			$buscar = mysql_query("SELECT * FROM tipodocs",$conexion);
+			while ($datos = mysql_fetch_assoc($buscar)){
+				?> 
+			
+				<option value="<?php echo  $datos["descripcion"]?>"><?php echo $datos["descripcion"]?></option>
+			<?php }
+			?>
+			</select>
+			<br>
+			Numero de Documento:<input type="text" name="numdoc" onKeyPress="return soloNumeros(event)">
+			<br>
+			Nombre:<input type="text" name="nombre" onkeypress="return soloLetras(event)">
+			<br>
+			Apellido:<input type="text" name="apellid">
+			<br>
+			Genero:<select name="gener">
+				<option>----------</option>
+				<option value="M">Masculino</option>
+				<option value="F">Femenino</option>
+			</select>
+			<br>
+			Email:<input type="email" name="eml1">
+			<br>
+			Contraseña:<input type="password" name="clv" onchange="conmenmay()">
+			<br>
+			Por Favor confirme su Contraseña:<input type="password" name="clv2" onchange="comprobarClave()">
+			<br>
+
+			Seleccione el Rol:<select name="rolusu">
+				<option>----------</option>
+				<?php
+			$servidor = "localhost"; //Nombre del servidor
+			$usuario = "root"; //Nombre de usuario en tu servidor
+			$password = " "; //Contraseña del usuario
+			$base = "ejerphp"; //Nombre de la BD 
+			$conexion = mysql_connect($servidor, $usuario, $password) or die("Error al conectarse al servidor");
+			mysql_select_db($base,$conexion) or die("Error al conectarse a la base de datos".mysql_error());
+			$buscar = mysql_query("SELECT * FROM roles",$conexion);
+			while ($datos = mysql_fetch_assoc($buscar)){
+				?> 
+			
+				<option value="<?php echo  $datos["nombre"]?>"><?php echo $datos["nombre"]?></option>
+			<?php }
+			?>
+			</select>
+			<br>
+			Envio de Datos:<input type="submit" value="enviar" onfocus="validar()">
+		</form>
+		<form action="index.html">
+			<button>Regresar al Inicio</button>
+		</form>
+	</div>
+</body>
+</html>

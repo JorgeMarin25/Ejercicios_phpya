@@ -1,0 +1,6 @@
+Nombre:Diana
+Dirección:fsafggs
+Cantidad de Jamón y Queso:2
+Cantidad de Napo:3
+Cantidad de Mozzarella:6
+--------------------------------------------------------

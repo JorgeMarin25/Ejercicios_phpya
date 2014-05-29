@@ -1,0 +1,27 @@
+<!doctype Html>
+<html lang="ES">
+	<head>
+	<title>Formulario</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="Css/Formularios.css">
+	<script type="text/javascript" src="Js/Formularios.js"></script>
+	</head>
+	<body>
+		<h1>Formulario de Creacion de Tipos de Documentos y Tipos de Roles</h1>
+		<form>
+			<strong>Tipo de Documento</strong>
+			<input type="Text" Size="20px" onkeypress="return letras(event)"><br>
+			<strong>Sigla</strong>
+			<input type="Text" Size="2px" onkeypress="return letras(event)"><br>
+			<input type="submit" value="Enviar"><br><br>
+		</form>
+			
+		<form>
+			<strong>Tipo de Rol</strong>
+			<input type="Text" Size="20px" onkeypress="return letras(event)"><br><br>
+			<strong>Descripcion</strong><br>
+			<textarea name="mensaje" cols="50" rows="5" placeholder="Ingrese una Descripcion del Rol en menos de 255 caracteres" maxlength="255" onkeypress="return letras(event)"></textarea><br>
+			<input type="submit" value="Enviar">
+		</form>
+	</body>
+</html>
